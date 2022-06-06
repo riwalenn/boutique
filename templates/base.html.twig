@@ -17,12 +17,6 @@
             -ms-user-select: none;
             user-select: none;
         }
-
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
-        }
     </style>
     <!-- Custom styles for this template -->
     <link href="{{ asset('assets/css/carousel.css') }}" rel="stylesheet">
@@ -37,7 +31,7 @@
         <div class="collapse navbar-collapse mx-3" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
                    <li class="nav-link">
-                       <a href="#" class="nav-link active">Nos produits</a>
+                       <a href="{{ path('products') }}" class="nav-link active">Nos produits</a>
                    </li>
                 <li class="nav-link">
                     <a href="#" class="nav-link active">Contact</a>
