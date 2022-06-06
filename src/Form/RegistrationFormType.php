@@ -22,7 +22,7 @@ class RegistrationFormType extends AbstractType
                 'label' => 'Votre email',
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Entrez un email',
+                        'message' => 'L\'email ne peut être vide',
                     ])
                 ],
                 'attr' => [
@@ -44,7 +44,7 @@ class RegistrationFormType extends AbstractType
                 'attr' => ['autocomplete' => 'new-password', 'placeholder' => 'Saisir un mot de passe d\'au moins 8 caractères'],
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Entrez un mot de passe',
+                        'message' => 'Le mot de passe ne peut être vide',
                     ]),
                     new Length([
                         'min' => 8,
