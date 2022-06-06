@@ -29,18 +29,26 @@
 </head>
 <body>
 <header>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark px-3">
         <a class="navbar-brand" href="{{ path('home') }}">La Boutique</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="collapse navbar-collapse mx-3" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
+                   <li class="nav-link">
+                       <a href="#" class="nav-link active">Nos produits</a>
+                   </li>
+                <li class="nav-link">
+                    <a href="#" class="nav-link active">Contact</a>
+                </li>
             </ul>
+        </div>
+        <div class="navbar-item-custom">
             {% if app.user %}
-                <a class="nav-link" href="{{ path('account') }}">Mon compte <span class="sr-only">(current)</span></a> | <a class="nav-link" href="{{ path('app_logout') }}">Déconnexion <span class="sr-only">(current)</span></a>
+                <a class="text-white text-decoration-none" href="{{ path('account') }}">Mon compte </a> | <a class="text-white text-decoration-none" href="{{ path('app_logout') }}">Déconnexion</a>
             {% else %}
-                <a class="nav-link" href="{{ path('app_login') }}">Connexion <span class="sr-only">(current)</span></a> | <a class="nav-link" href="{{ path('app_register') }}">Inscription <span class="sr-only">(current)</span></a>
+                <a class="text-white text-decoration-none" href="{{ path('app_login') }}">Connexion</a> | <a class="text-white text-decoration-none" href="{{ path('app_register') }}">Inscription</a>
             {% endif %}
         </div>
     </nav>
@@ -102,11 +110,16 @@
     </div>
 
     <footer class="container">
-        <p class="float-right"><a href="#">Back to top</a></p>
-        <p>&copy; 2022 La Boutique &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+        <div class="fixed-bottom bg-dark text-center pt-3 text-white">
+            <p>
+                &copy; 2022 La Boutique
+                &middot; <a href="#" class="text-white text-decoration-none">Qui sommes-nous ?</a>
+                &middot; <a href="#" class="text-white text-decoration-none">Conditions d'utilisation</a>
+            </p>
+        </div>
     </footer>
 </main>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="{{ asset('assets/js/bootstrap.bundle.js') }}"></script>
+<script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
 </body>
 </html>
