@@ -5,16 +5,24 @@
         <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
 
-    <form action="{{ path('app_login') }}" method="post">
-        <label for="username">Email:</label>
-        <input type="text" id="username" name="_username" value="{{ last_username }}"/>
-
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="_password"/>
-
-        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-        <input type="hidden" name="_target_path" value="{{ path('home') }}"/>
-
-        <button type="submit">login</button>
-    </form>
+    <div class="row">
+        <div class="login-form bg-light mt-4 p-4">
+            <form action="{{ path('app_login') }}" method="post" class="row g-3">
+                <h1 class="h3 mb-3 font-weight-normal">Inscription</h1>
+                <div class="col-12 mt-3">
+                    <label for="username">Email:</label>
+                    <input type="text" id="username" name="_username" value="{{ last_username }}" class="form-control"/>
+                </div>
+                <div class="col-12 mt-3">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="_password" class="form-control"/>
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                    <input type="hidden" name="_target_path" value="{{ path('home') }}"/>
+                </div>
+                <div class="col-12 mt-3">
+                    <button type="submit" class="btn btn-lg btn-primary float-end">login</button>
+                </div>
+            </form>
+        </div>
+    </div>
 {% endblock %}
