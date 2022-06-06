@@ -2,10 +2,13 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Category;
+use App\Entity\Product;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -61,8 +64,12 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         return [
-            MenuItem::section('Users'),
-            MenuItem::linkToCrud('Users', 'fa fa-user', User::class),
+            MenuItem::section('Utilisateurs'),
+            MenuItem::linkToCrud('Utilisateurs', 'fa fa-user', User::class),
+            MenuItem::section('Catégories'),
+            MenuItem::linkToCrud('Catégories', 'fas fa-list-alt', Category::class),
+            MenuItem::section('Produits'),
+            MenuItem::linkToCrud('Produits', 'fas fa-tags', Product::class),
         ];
     }
 }
