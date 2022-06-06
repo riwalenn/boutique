@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon compte - La Boutique{% endblock %}
+
+{% block content %}
+    <h1>Mon compte</h1>
+    Bienvenue dans votre compte ! C'est dans cet espace que vous allez pouvoir gérer toutes vos informations personnelles.
+
+    <hr>
+    <ul>
+        <li><a href="{{ path('account_password') }}" class="nav-link"> Modifier le mot de passe</a></li>
+        <li><a href="#" class="nav-link">Ajouter mes adresses</a></li>
+        <li><a href="#" class="nav-link">Mes commandes</a></li>
+    </ul>
+    <hr>
+{% endblock %}
