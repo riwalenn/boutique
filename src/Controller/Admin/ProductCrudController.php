@@ -23,6 +23,7 @@ class ProductCrudController extends AbstractCrudController
     {
         return [
             TextField::new('name'),
+            TextField::new('brand'),
             SlugField::new('slug')->setTargetFieldName('name'),
             ImageField::new('illustration')
                 ->setBasePath('uploads/')
@@ -32,6 +33,7 @@ class ProductCrudController extends AbstractCrudController
             TextField::new('subtitle'),
             TextareaField::new('description'),
             MoneyField::new('price')->setCurrency('EUR'),
+            TextField::new('shape'),
             AssociationField::new('category')
         ];
     }
