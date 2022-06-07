@@ -3,19 +3,26 @@
 {% block title %}Nos produits - La Boutique{% endblock %}
 
 {% block content %}
-    <h1>Nos produits</h1>
-
     <div class="row">
-        {% for product in products %}
-            <div class="col-md-4 m-3">
-                <div class="product-item text-center">
-                    <a href="{{ path('product', { 'slug' : product.slug}) }}"><img src="/uploads/{{ product.illustration }}" alt="{{ product.name }}"></a>
-                    <span class="d-block fst-italic">{{ product.category }}</span>
-                    <h5>{{ product.name }}</h5>
-                    <span class="d-block">{{ product.subtitle }}</span>
-                    <span class="d-block fw-bold">{{ (product.price / 100)|number_format(2) ~ '€' }}</span>
-                </div>
+        <div class="col-md-3">
+            <h3>Filtrer</h3>
+            {{ form(form) }}
+        </div>
+        <div class="col-md-9">
+            <h3>Nos produits</h3>
+            <div class="row">
+                {% for product in products %}
+                    <div class="col-md-4 m-3">
+                        <div class="product-item text-center">
+                            <a href="{{ path('product', { 'slug' : product.slug}) }}"><img src="/uploads/{{ product.illustration }}" alt="{{ product.name }}"></a>
+                            <span class="d-block fst-italic">{{ product.category }}</span>
+                            <h5>{{ product.name }}</h5>
+                            <span class="d-block">{{ product.subtitle }}</span>
+                            <span class="d-block fw-bold">{{ (product.price / 100)|number_format(2) ~ '€' }}</span>
+                        </div>
+                    </div>
+                {% endfor %}
             </div>
-        {% endfor %}
+        </div>
     </div>
 {% endblock %}
