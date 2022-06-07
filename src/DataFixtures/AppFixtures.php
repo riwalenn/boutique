@@ -40,7 +40,12 @@ class AppFixtures extends Fixture
         $manager->persist($user);
 
         $category = new Category();
-        $category->setName('Appareils Photographiques');
+        $category->setName('Appareils Photo numériques');
+
+        $manager->persist($category);
+
+        $category = new Category();
+        $category->setName('Appareils Photo Hybrides');
 
         $manager->persist($category);
 
