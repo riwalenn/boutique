@@ -15,4 +15,9 @@ class Search
      * @var Category[]
      */
     public $categories = [];
+
+    /**
+     * @var string
+     */
+    public $shape = '';
 }

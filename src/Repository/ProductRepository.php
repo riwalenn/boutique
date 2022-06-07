@@ -60,6 +60,11 @@ class ProductRepository extends ServiceEntityRepository
             $query->andWhere('p.name LIKE :string')
                 ->setParameter('string', "%{$search->string}%");
         }
+
+        if (!empty($search->shape)) {
+            $query->andWhere('p.shape LIKE :shape')
+                ->setParameter('shape', "%{$search->shape}%");
+        }
         return $query->getQuery()->getResult();
     }
 
