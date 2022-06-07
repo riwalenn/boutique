@@ -35,6 +35,12 @@ class Product
     #[ORM\JoinColumn(nullable: false)]
     private $category;
 
+    #[ORM\Column(type: 'string', length: 255)]
+    private $brand;
+
+    #[ORM\Column(type: 'string', length: 255)]
+    private $shape;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -120,6 +126,30 @@ class Product
     public function setCategory(?Category $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    public function getBrand(): ?string
+    {
+        return $this->brand;
+    }
+
+    public function setBrand(string $brand): self
+    {
+        $this->brand = $brand;
+
+        return $this;
+    }
+
+    public function getShape(): ?string
+    {
+        return $this->shape;
+    }
+
+    public function setShape(string $shape): self
+    {
+        $this->shape = $shape;
 
         return $this;
     }
