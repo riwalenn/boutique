@@ -16,7 +16,7 @@ class Category
     private $id;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $name;
+    private ?string $name;
 
     #[ORM\OneToMany(mappedBy: 'category', targetEntity: Product::class)]
     private $products;

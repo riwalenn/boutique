@@ -14,32 +14,32 @@ class Product
     private $id;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $name;
+    private ?string $name;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $slug;
+    private ?string $slug;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $illustration;
+    private ?string $illustration;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $subtitle;
+    private ?string $subtitle;
 
     #[ORM\Column(type: 'text')]
-    private $description;
+    private ?string $description;
 
     #[ORM\Column(type: 'float')]
-    private $price;
+    private ?float $price;
 
     #[ORM\ManyToOne(targetEntity: Category::class, inversedBy: 'products')]
     #[ORM\JoinColumn(nullable: false)]
-    private $category;
+    private ?Category $category;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $brand;
+    private ?string $brand;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $shape;
+    private ?string $shape;
 
     public function getId(): ?int
     {
