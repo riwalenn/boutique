@@ -4,7 +4,7 @@ namespace App\Form;
 
 use App\Classe\Search;
 use App\Entity\Category;
-use App\Entity\Product;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -40,6 +40,22 @@ class SearchType extends AbstractType
             ],
             'required' => false,
             'expanded' => true
+        ])
+        ->add('minPrice',IntegerType::class, [
+            'label' => false,
+            'required' => false,
+            'attr' => [
+                'placeholder' => 'saisir un prix',
+                'class' => 'form-control-sm'
+            ]
+        ])
+        ->add('maxPrice', IntegerType::class, [
+            'label' => false,
+            'required' => false,
+            'attr' => [
+                'placeholder' => 'saisir un prix',
+                'class' => 'form-control-sm'
+            ]
         ])
         ->add('submit', SubmitType::class, [
             'label' => 'Valider',

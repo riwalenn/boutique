@@ -20,4 +20,14 @@ class Search
      * @var string
      */
     public $shape = '';
+
+    /**
+     * @var int
+     */
+    public $minPrice = 0;
+
+    /**
+     * @var int
+     */
+    public $maxPrice = 0;
 }

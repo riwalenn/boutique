@@ -65,6 +65,14 @@ class ProductRepository extends ServiceEntityRepository
             $query->andWhere('p.shape LIKE :shape')
                 ->setParameter('shape', "%{$search->shape}%");
         }
+        if (!empty($search->minPrice)) {
+            $query->andWhere('p.price >= :minPrice')
+                ->setParameter('minPrice', $search->minPrice*100);
+        }
+        if (!empty($search->maxPrice)) {
+            $query->andWhere('p.price <= :maxPrice')
+                ->setParameter('maxPrice', $search->maxPrice*100);
+        }
         return $query->getQuery()->getResult();
     }
 
