@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes adresses - La Boutique{% endblock %}
+
+{% block content %}
+    <a href="{{ path('account') }}">Retourner à mon compte</a>
+    <h1>Mes adresses - ajouter une adresse</h1>
+    Bienvenue dans votre compte ! C'est dans cet espace que vous allez pouvoir gérer toutes vos adresses.
+
+    <hr>
+    <div class="row">
+        {{ form_start(form) }}
+        <div class="row">
+            <div class="form-row">
+                <div class="form-group col-md-5">{{ form_row(form.name) }}</div>
+                <div class="form-group col-md-5">{{ form_row(form.phone) }}</div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-5">
+                    {{ form_row(form.firstname) }}
+                </div>
+                <div class="form-group col-md-5">
+                    {{ form_row(form.lastname) }}
+                </div>
+            </div>
+            <div class="form-group">
+                {{ form_row(form.address) }}
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-5">
+                    {{ form_row(form.city) }}
+                </div>
+                <div class="form-group col-md-4">
+                    {{ form_row(form.country) }}
+                </div>
+                <div class="form-group col-md-2">
+                    {{ form_row(form.zipcode) }}
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">{{ form_row(form.submit) }}</button>
+        </div>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
