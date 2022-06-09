@@ -38,4 +38,28 @@ class Cart
         $session = $this->requestStack->getSession();
         return $session->remove('cart');
     }
+
+    public function deleteProduct($id)
+    {
+        $session = $this->requestStack->getSession();
+
+        $cart = $session->get('cart', []);
+        unset($cart[$id]);
+
+        $session->set('cart', $cart);
+        return $cart;
+    }
+
+    public function removeProduct($id)
+    {
+        $session = $this->requestStack->getSession();
+
+        $cart = $session->get('cart', []);
+        if (!empty($cart[$id])) {
+            $cart[$id]--;
+        }
+
+        $session->set('cart', $cart);
+        return $cart;
+    }
 }

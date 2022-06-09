@@ -41,7 +41,7 @@
         </div>
         <div class="navbar-item-custom">
             {% if app.user %}
-                <a class="text-white text-decoration-none" href="{{ path('account') }}">Mon compte </a> | <a class="text-white text-decoration-none" href="{{ path('cart') }}"><i class="fas fa-shopping-cart"></i> mon panier</a> | {% if (is_granted('ROLE_ADMIN')) %} <a class="text-white text-decoration-none" href="{{ path('admin') }}" target="_blank">Panel admin</a> | {% endif %}<a class="text-white text-decoration-none" href="{{ path('app_logout') }}">Déconnexion</a>
+                <a class="text-white text-decoration-none" href="{{ path('account') }}">Mon compte </a> | {% if (is_granted('ROLE_ADMIN')) %} <a class="text-white text-decoration-none" href="{{ path('admin') }}" target="_blank">Panel admin</a> | {% endif %}<a class="text-white text-decoration-none" href="{{ path('app_logout') }}">Déconnexion</a> | <a class="text-white text-decoration-none" href="{{ path('cart') }}"><i class="fas fa-shopping-cart"></i> </a>
             {% else %}
                 <a class="text-white text-decoration-none" href="{{ path('app_login') }}">Connexion</a> | <a class="text-white text-decoration-none" href="{{ path('app_register') }}">Inscription</a>
             {% endif %}
