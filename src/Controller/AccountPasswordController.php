@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AccountPasswordController extends AbstractController
 {
-    #[Route('/account/modifier-mot-de-passe', name: 'account_password')]
+    #[Route('/compte/modifier-mot-de-passe', name: 'account_password')]
     public function index(Request $request, UserRepository $userRepository, UserPasswordHasherInterface $userPasswordHasher): Response
     {
         $notification = null;
