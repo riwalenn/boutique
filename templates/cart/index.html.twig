@@ -24,8 +24,8 @@
                         <td>
                             <p class="fs-5 fw-bold">{{ product.product.name }}</p>
                             <p class="fs-6">{{ product.product.subtitle }}</p>
-                            <p>Quantité : <a href="{{ path('remove_my_product', { 'id' : product.product.id }) }}"><i class="fas fa-minus text-black"></i></a> {{ product.quantity }}
-                                <a href="{{ path('add_to_cart', { 'id': product.product.id }) }}"><i class="fas fa-plus text-black"></i></a> | <a href="{{ path('delete_my_product', { 'id' : product.product.id}) }}"><button class="btn btn-sm btn-light">supprimer</button></a></p>
+                            <p>Quantité : <a href="{{ path('decrease_my_product', { 'id' : product.product.id }) }}" class="text-center text-black text-decoration-none"> -</a> {{ product.quantity }}
+                                    <a href="{{ path('add_to_cart', { 'id': product.product.id }) }}" class="text-center text-black text-decoration-none"> +</a> | <a href="{{ path('delete_my_product', { 'id' : product.product.id}) }}"><button class="btn btn-sm btn-light">supprimer</button></a></p>
                         </td>
                         <td style="text-align: right;">{{ (product.product.price / 100)|number_format(2) ~ '€' }}</td>
                     </tr>
