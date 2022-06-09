@@ -26,9 +26,9 @@
             <h3>Nos produits</h3>
             <div class="row">
                 {% for product in products %}
-                    <div class="col-md-4 m-3">
+                    <div class="col-md-4  mt-4">
                         <div class="product-item text-center">
-                            <a href="{{ path('product', { 'slug' : product.slug}) }}"><img src="/uploads/{{ product.illustration }}" alt="{{ product.name }}"></a>
+                            <a href="{{ path('product', { 'slug' : product.slug}) }}"><img src="/uploads/{{ product.illustration }}" alt="{{ product.name }}" width="150px"></a>
                             <span class="d-block fst-italic">{{ product.category }}</span>
                             <h5>{{ product.name }}</h5>
                             <span class="d-block">{{ product.subtitle }}</span>

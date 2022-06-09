@@ -20,7 +20,7 @@
             {% for product in cart %}
                 {% if product.quantity > 0 %}
                     <tr>
-                        <td><img src="/uploads/{{ product.product.illustration }}" alt="{{ product.product.name }}" height="75px" /></td>
+                        <td><img src="/uploads/{{ product.product.illustration }}" alt="{{ product.product.name }}" class="px-2" width="95px" /></td>
                         <td>
                             <p class="fs-5 fw-bold">{{ product.product.name }}</p>
                             <p class="fs-6">{{ product.product.subtitle }}</p>
