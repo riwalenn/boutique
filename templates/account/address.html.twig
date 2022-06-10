@@ -10,7 +10,7 @@
     <hr>
     <div class="row">
         {% for address in app.user.addresses %}
-        <div class="col-md-4">
+        <div class="col-md-4 mb-5">
             <div class="card" style="width: 18rem;">
                 <div class="card-header">
                     {{ address.name }}
@@ -26,7 +26,7 @@
                     </p>
                 </div>
                 <div class="card-footer" style="text-align: right">
-                    <small class="text-muted"><a href="#" class="card-link">Modifier</a> | <a href="#" class="card-link">Effacer</a></small>
+                    <small class="text-muted"><a href="{{ path('account_edit_address', {'id': address.id}) }}" class="card-link">Modifier</a> | <a href="{{ path('account_address_remove', {'id': address.id}) }}" class="card-link">Effacer</a></small>
                 </div>
             </div>
         </div>
