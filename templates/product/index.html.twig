@@ -4,7 +4,7 @@
 
 {% block content %}
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-3 pb-5 mb-5">
             <h3>Filtrer</h3>
             {{ form_start(form) }}
             {{ form_row(form.string) }}
@@ -22,8 +22,8 @@
             {{ form_row(form.submit) }}
             {{ form_end(form) }}
         </div>
-        <div class="col-md-9">
-            <h3>Nos produits</h3>
+        <div class="col-md-9 pb-5 mb-5">
+            <h3>{{ title }}</h3>
             <div class="row">
                 {% for product in products %}
                     <div class="col-md-4  mt-4">

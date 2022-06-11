@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Address;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
@@ -48,6 +49,9 @@ class AddressType extends AbstractType
             ])
             ->add('phone', TelType::class, [
                 'label' => 'Numéro de téléphone'
+            ])
+            ->add('byDefault', CheckboxType::class, [
+                'label' => 'Définir cette adresse comme adresse par défaut'
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Ajouter mon adresse'

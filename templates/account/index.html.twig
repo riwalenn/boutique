@@ -7,10 +7,34 @@
     Bienvenue dans votre compte ! C'est dans cet espace que vous allez pouvoir gérer toutes vos informations personnelles.
 
     <hr>
-    <ul>
-        <li><a href="{{ path('account_password') }}" class="nav-link"> Modifier le mot de passe</a></li>
-        <li><a href="{{ path('account_address') }}" class="nav-link">Ajouter mes adresses</a></li>
-        <li><a href="#" class="nav-link">Mes commandes</a></li>
-    </ul>
-    <hr>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card" style="width: 18rem; text-align: center">
+                <a href="{{ path('account_password') }}" class="nav-link"><i class="fas fa-shield-alt" style="font-size: 75px; color: #f8c961;"></i></a>
+                <div class="card-body" style="text-align: center">
+                    <h5 class="card-title"><a href="{{ path('account_password') }}" class="nav-link">Connexion et sécurité</a></h5>
+                    <p class="card-text">Modifier le mot de passe</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card" style="width: 18rem; text-align: center">
+                <a href="{{ path('account_address') }}" class="nav-link"><i class="far fa-address-book" style="font-size: 75px; color: #f8c961;"></i></a>
+                <div class="card-body" style="text-align: center">
+                    <h5 class="card-title"><a href="{{ path('account_address') }}" class="nav-link">Adresses</a></h5>
+                    <p class="card-text">Ajouter, modifier ou supprimer vos adresses</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card" style="width: 18rem; text-align: center">
+                <a href="#" class="nav-link"><i class="fas fa-box" style="font-size: 75px; color: #f8c961;"></i></a>
+                <div class="card-body" style="text-align: center">
+                    <h5 class="card-title"><a href="#" class="nav-link">Vos commandes</a></h5>
+                    <p class="card-text">Suivre, retourner ou acheter à nouveau</p>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

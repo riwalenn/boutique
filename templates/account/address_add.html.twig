@@ -3,7 +3,7 @@
 {% block title %}Mes adresses - La Boutique{% endblock %}
 
 {% block content %}
-    <a href="{{ path('account') }}">Retourner à mon compte</a>
+    <a href="{{ path('account_address') }}">Retourner à mes adresses</a>
     <h1>Mes adresses - ajouter une adresse</h1>
     Bienvenue dans votre compte ! C'est dans cet espace que vous allez pouvoir gérer toutes vos adresses.
 
@@ -29,7 +29,8 @@
         <div class="form-group col-md-6">{{ form_row(form.country) }}</div>
     </div>
     <div class="row">
-        <div class="form-group col-md-3">{{ form_row(form.submit) }}</div>
+        <div class="form-group col-md-3 my-auto">{{ form_row(form.submit) }}</div>
+        <div class="form-group col-md-9 my-auto">{{ form_row(form.byDefault) }}</div>
     </div>
 
     {{ form_end(form) }}

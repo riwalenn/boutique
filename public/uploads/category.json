@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "name": "Appareils photo argentiques"
+  },
+  {
+    "id": 2,
+    "name": "Appareils Photo numériques"
+  },
+  {
+    "id": 3,
+    "name": "Appareil Photo Hybride"
+  },
+  {
+    "id": 4,
+    "name": "Accessoires photo"
+  },
+  {
+    "id": 5,
+    "name": "Téléphones Android"
+  },
+  {
+    "id": 6,
+    "name": "Téléphones IOS"
+  },
+  {
+    "id": 7,
+    "name": "Téléphones Windows"
+  },
+  {
+    "id": 8,
+    "name": "Audio casques"
+  },
+  {
+    "id": 9,
+    "name": "Audio enceintes"
+  },
+  {
+    "id": 10,
+    "name": "Audio hi-fi"
+  },
+  {
+    "id": 11,
+    "name": "TV home cinéma"
+  },
+  {
+    "id": 12,
+    "name": "TV enceinte"
+  },
+  {
+    "id": 13,
+    "name": "TV téléviseurs"
+  },
+  {
+    "id": 14,
+    "name": "PC portables"
+  },
+  {
+    "id": 15,
+    "name": "PC portables gamer"
+  },
+  {
+    "id": 16,
+    "name": "PC portables Notebook"
+  },
+  {
+    "id": 17,
+    "name": "PC portables MacBook"
+  },
+  {
+    "id": 18,
+    "name": "PC bureau"
+  },
+  {
+    "id": 19,
+    "name": "PC bureau gamer"
+  },
+  {
+    "id": 20,
+    "name": "PC bureau multimédia"
+  },
+  {
+    "id": 21,
+    "name": "PC bureau professionnel"
+  },
+  {
+    "id": 22,
+    "name": "Tablettes Apple iPad"
+  },
+  {
+    "id": 23,
+    "name": "Tablettes Samsung"
+  },
+  {
+    "id": 24,
+    "name": "Tablettes Android"
+  }
+]

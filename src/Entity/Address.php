@@ -16,34 +16,37 @@ class Address
 
     #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'addresses')]
     #[ORM\JoinColumn(nullable: false)]
-    private $user;
+    private ?User $user;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $name;
+    private ?string $name;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $firstname;
+    private ?string $firstname;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $lastname;
+    private ?string $lastname;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
-    private $company;
+    private ?string $company;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $address;
+    private ?string $address;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $zipcode;
+    private ?string $zipcode;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $city;
+    private ?string $city;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $country;
+    private ?string $country;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private $phone;
+    private ?string $phone;
+
+    #[ORM\Column(type: 'boolean')]
+    private $byDefault;
 
     public function getId(): ?int
     {
@@ -166,6 +169,18 @@ class Address
     public function setPhone(string $phone): self
     {
         $this->phone = $phone;
+
+        return $this;
+    }
+
+    public function isByDefault(): ?bool
+    {
+        return $this->byDefault;
+    }
+
+    public function setByDefault(bool $byDefault): self
+    {
+        $this->byDefault = $byDefault;
 
         return $this;
     }

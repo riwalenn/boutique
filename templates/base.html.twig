@@ -21,34 +21,172 @@
     <!-- Custom styles for this template -->
     <link href="{{ asset('assets/css/carousel.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/footer.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/laboutique.css') }}" rel="stylesheet">
 </head>
 <body>
 <header>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark px-3">
-        <a class="navbar-brand" href="{{ path('home') }}">La Boutique</a>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top px-5 py-0" style="background: linear-gradient(90deg,#353535 0,#515151 20%,#515151 46%,#353535)">
+        <a class="navbar-brand" href="{{ path('home') }}" style="color: #f5b016;">La Boutique</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse mx-3" id="navbarCollapse">
-            <ul class="navbar-nav mr-auto">
-                   <li class="nav-link">
-                       <a href="{{ path('products') }}" class="nav-link active">Nos produits</a>
-                   </li>
-                <li class="nav-link">
-                    <a href="{{ path('contact') }}" class="nav-link active">Contact</a>
-                </li>
-            </ul>
-        </div>
-        <div class="navbar-item-custom">
-            {% if app.user %}
-                <a class="text-white text-decoration-none" href="{{ path('account') }}">Mon compte </a> | {% if (is_granted('ROLE_ADMIN')) %} <a class="text-white text-decoration-none" href="{{ path('admin') }}" target="_blank">Panel admin</a> | {% endif %}<a class="text-white text-decoration-none" href="{{ path('app_logout') }}">Déconnexion</a> | <a class="text-white text-decoration-none" href="{{ path('cart') }}"><i class="fas fa-shopping-cart"></i> </a>
-            {% else %}
-                <a class="text-white text-decoration-none" href="{{ path('app_login') }}">Connexion</a> | <a class="text-white text-decoration-none" href="{{ path('app_register') }}">Inscription</a>
-            {% endif %}
+            <div class="col-md-2 col-sm-1 hidden-xs">
+                <div class="left-category-menu">
+                    <nav class="category-menu">
+                        <ul>
+                            <li>
+                                <a href="#" class="category-label">
+                                    <h2>categories</h2>
+                                </a>
+                                <ul class="category-items">
+                                    <li class="menu-item electronic-item">
+                                        <a href="#">
+                                            <span>High-Tech</span>
+                                        </a>
+                                        <span class="menu-drop-icon"></span>
+                                        <div class="sub-menu">
+                                            <div class="sub-menu-line">
+                                                <div class="sub-menu-left">
+                                                    <h2 class="menu-item-heading">Appareils photo</h2>
+                                                    <ul>
+                                                        <li><a href="{{ path('product_category', {'id_category': 1 }) }}">Argentiques</a></li>
+                                                        <li><a href="{{ path('product_category', {'id_category': 2 }) }}">Numériques</a></li>
+                                                        <li><a href="{{ path('product_category', {'id_category': 3 }) }}">Hybrides</a></li>
+                                                        <li><a href="{{ path('product_category', {'id_category': 4 }) }}">Accessoires</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="sub-menu-left">
+                                                    <h2 class="menu-item-heading">Téléphones portables</h2>
+                                                    <ul>
+                                                        <li><a href="{{ path('product_category', {'id_category': 5 }) }}">Android</a></li>
+                                                        <li><a href="{{ path('product_category', {'id_category': 6 }) }}">IOS</a></li>
+                                                        <li><a href="{{ path('product_category', {'id_category': 7 }) }}">Window Phone</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="sub-menu-left">
+                                                    <h2 class="menu-item-heading">Audio & Hifi</h2>
+                                                    <ul>
+                                                        <li><a href="{{ path('product_category', {'id_category': 8 }) }}">Casques</a></li>
+                                                        <li><a href="{{ path('product_category', {'id_category': 9 }) }}">Enceintes</a></li>
+                                                        <li><a href="{{ path('product_category', {'id_category': 10 }) }}">Chaînes Hi-Fi</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="sub-menu-left">
+                                                    <h2 class="menu-item-heading">TV & Home Cinéma</h2>
+                                                    <ul>
+                                                        <li><a href="{{ path('product_category', {'id_category': 11 }) }}">Home Cinéma</a></li>
+                                                        <li><a href="{{ path('product_category', {'id_category': 12 }) }}">Enceintes</a></li>
+                                                        <li><a href="{{ path('product_category', {'id_category': 13 }) }}">Téléviseurs</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="menu-item electronic-item">
+                                        <a href="#">
+                                            <span>Informatique</span>
+                                        </a>
+                                        <span class="menu-drop-icon"></span>
+                                        <div class="sub-menu">
+                                            <div class="sub-menu-line">
+                                                <div class="sub-menu-left">
+                                                    <h2 class="menu-item-heading">PC portables</h2>
+                                                    <ul>
+                                                        <li><a href="{{ path('product_category', {'id_category': 14 }) }}">PC portable</a></li>
+                                                        <li><a href="{{ path('product_category', {'id_category': 15 }) }}">PC portable gamer</a></li>
+                                                        <li><a href="{{ path('product_category', {'id_category': 16 }) }}">Notebook</a></li>
+                                                        <li><a href="{{ path('product_category', {'id_category': 17 }) }}">MacBook</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="sub-menu-left">
+                                                    <h2 class="menu-item-heading">PC de bureau</h2>
+                                                    <ul>
+                                                        <li><a href="{{ path('product_category', {'id_category': 18 }) }}">PC de bureau</a></li>
+                                                        <li><a href="{{ path('product_category', {'id_category': 19 }) }}">PC gamer</a></li>
+                                                        <li><a href="{{ path('product_category', {'id_category': 20 }) }}">PC multimédia</a></li>
+                                                        <li><a href="{{ path('product_category', {'id_category': 21 }) }}">PC professionnel</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="sub-menu-left">
+                                                    <h2 class="menu-item-heading">Tablettes tactiles</h2>
+                                                    <ul>
+                                                        <li><a href="{{ path('product_category', {'id_category': 22 }) }}">Apple iPad</a></li>
+                                                        <li><a href="{{ path('product_category', {'id_category': 23 }) }}">Tablette Samsung</a></li>
+                                                        <li><a href="{{ path('product_category', {'id_category': 24 }) }}">Tablette Android</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-11 hidden-xs"></div>
+            <div class="col-md-4 col-sm-12 col-xs-10 d-flex  flex-row-reverse">
+                <div class="main-menu">
+                    <nav>
+                        <ul>
+                            {% if app.user %}
+                                <li class="my-auto">
+                                    {% for address in app.user.addresses %}
+                                        {% if address.byDefault == 1 %}
+                                            <a href="{{ path('account_address') }}" class="text-lowercase">
+                                                Livrer à {{ address.firstname }}<br>
+                                                <i class="fas fa-map-marker-alt"></i> {{ address.city }} {{ address.zipcode }}
+                                            </a>
+                                        {% endif %}
+                                    {% endfor %}
+                                </li>
+                            {% endif %}
+                            <li class="expand my-auto">
+                                {% if app.user %}
+                                    {% for address in app.user.addresses %}
+                                        {% if address.byDefault == 1 %}
+                                            <a href="{{ path('home') }}">
+                                                <span> Bonjour<br>{{ address.lastname }}</span>
+                                            </a>
+                                        {% endif %}
+                                    {% endfor %}
+                                {% else %}
+                                    <a href="{{ path('home') }}">
+                                        <span>Profil</span>
+                                    </a>
+                                {% endif %}
+                                <ul class="main-sub-menu">
+                                    {% if not app.user %}
+                                        <li><a href="{{ path('app_register') }}">Inscription</a></li>
+                                        <li><a href="{{ path('app_login') }}">Connexion</a></li>
+                                    {% endif %}
+                                    {% if app.user %}
+                                        <li><a href="{{ path('account') }}">Mon compte</a></li>
+                                        <li><a href="{{ path('account_address') }}">Mes adresses</a></li>
+                                        <li><a href="#">Mes commandes</a></li>
+                                        {% if (is_granted('ROLE_ADMIN')) %}
+                                            <hr>
+                                            <li><a href="{{ path('admin') }}">Panel admin</a></li>
+                                         {% endif %}
+                                        <hr>
+                                        <li><a href="{{ path('app_logout') }}">Déconnexion</a></li>
+                                    {% endif %}
+                                </ul>
+                            </li>
+                            {% if app.user %}
+                                <li class="my-auto">
+                                    <a class="text-white text-decoration-none" href="{{ path('cart') }}">
+                                    <i class="fas fa-shopping-cart" style="color: #f5b016;"></i></a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+                </div>
+            </div>
         </div>
     </nav>
 </header>
-
 <main role="main">
 
     {% if block('carousel') is defined %}
@@ -104,12 +242,13 @@
         {% block content %}{% endblock %}
     </div>
 
-    <footer class="footer">
-        <div class="container">
-            <p class="text-muted text-center">
+    <footer class="footer-area py-1{% if block('carousel') is not defined %} fixed-bottom {% endif %}" style="background: #c6ac83 none repeat scroll 0 0">
+        <div class="container mt-3">
+            <p class="text-white text-center">
                 &copy; 2022 La Boutique
-                &middot; <a href="{{ path('la_boutique') }}" class="text-muted text-decoration-none">Qui sommes-nous ?</a>
-                &middot; <a href="{{ path('terms_of_use') }}" class="text-muted text-decoration-none">Conditions d'utilisation</a>
+                &middot; <a href="{{ path('contact') }}" class="text-white">Contactez-nous</a>
+                &middot; <a href="{{ path('la_boutique') }}" class="text-white">Qui sommes-nous ?</a>
+                &middot; <a href="{{ path('terms_of_use') }}" class="text-white">Conditions d'utilisation</a>
             </p>
         </div>
     </footer>

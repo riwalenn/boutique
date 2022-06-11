@@ -4,32 +4,48 @@
 
 {% block content %}
     <a href="{{ path('account') }}">Retourner à mon compte</a>
-    <h1>Mes adresses <span style="font-size: 1.5rem !important;"><a href="{{ path('account_add_address') }}" class="text-muted text-decoration-none"><i class="far fa-plus-square"></i></a></span></h1>
+    <h1>Mes adresses <span style="font-size: 1.5rem !important;"></span></h1>
     Bienvenue dans votre compte ! C'est dans cet espace que vous allez pouvoir gérer toutes vos adresses.
 
     <hr>
     <div class="row">
-        {% for address in app.user.addresses %}
         <div class="col-md-4 mb-5">
             <div class="card" style="width: 18rem;">
                 <div class="card-header">
-                    {{ address.name }}
+                    <a href="{{ path('account_add_address') }}" class="text-muted text-decoration-none">
+                        Ajouter une adresse
+                    </a>
                 </div>
-                <div class="card-body">
-                    <h5 class="card-title">{{ address.firstname }} {{ address.lastname }}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">{% if(address.company) %}{{ address.company }}{% else %} - {% endif %}</h6>
-                    <p class="card-text">
-                        {{ address.address }}<br>
-                        {{ address.city }}, {{ address.zipcode }}<br>
-                        {{ address.country }}<br>
-                        Numéro de téléphone : {{ address.phone }}
-                    </p>
+                <div class="card-body" style="text-align: center">
+                    <a href="{{ path('account_add_address') }}" class="text-muted text-decoration-none">
+                        <i class="fas fa-plus" style="font-size: 175px; color: #f3f2f2;"></i>
+                    </a>
                 </div>
-                <div class="card-footer" style="text-align: right">
-                    <small class="text-muted"><a href="{{ path('account_edit_address', {'id': address.id}) }}" class="card-link">Modifier</a> | <a href="{{ path('account_address_remove', {'id': address.id}) }}" class="card-link">Effacer</a></small>
+                <div class="card-footer" style="height: 40px;">
                 </div>
             </div>
         </div>
+        {% for address in app.user.addresses %}
+            <div class="col-md-4 mb-5">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-header{% if address.byDefault == 1 %} bg-info text-white{% endif %}">
+                        {{ address.name }}
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ address.firstname }} {{ address.lastname }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{% if(address.company) %}{{ address.company }}{% else %} - {% endif %}</h6>
+                        <p class="card-text">
+                            {{ address.address }}<br>
+                            {{ address.city }}, {{ address.zipcode }}<br>
+                            {{ address.country }}<br>
+                            Numéro de téléphone : {{ address.phone }}
+                        </p>
+                    </div>
+                    <div class="card-footer" style="text-align: right">
+                        <small class="text-muted"><a href="{{ path('account_edit_address', {'id': address.id}) }}" class="card-link">Modifier</a> | <a href="{{ path('account_address_remove', {'id': address.id}) }}" class="card-link">Effacer</a></small>
+                    </div>
+                </div>
+            </div>
         {% endfor %}
         {% if app.user.addresses|length == 0 %}
             Vous n'avez pas encore ajouté d'adresse à votre compte client.

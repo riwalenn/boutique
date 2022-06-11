@@ -22,7 +22,7 @@ class CartController extends AbstractController
     public function add(Cart $cart, $id): Response
     {
         $cart->increase($id);
-        return $this->redirectToRoute('products');
+        return $this->redirectToRoute('cart');
     }
 
     #[Route('/cart/remove', name: 'remove_my_cart')]

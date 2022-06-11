@@ -1,0 +1,377 @@
+html, body {height: 100%;}
+a {transition: all 0.3s ease 0s;text-decoration:none;color:#2b2b2b}
+a:hover {
+    color: #00BFF3;
+    text-decoration: none;
+}
+a:active, a:hover {
+    outline: 0 none;
+}
+ul{
+    list-style: outside none none;
+    margin: 0;
+    padding: 0
+}
+.clear{clear:both}
+body {font-family: 'Poppins', sans-serif;color:#848484;}
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+.browserupgrade {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+a#scrollUp {
+    background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0;
+    border-radius: 100%;
+    bottom: 12px;
+    color: #fff;
+    font-size: 25px;
+    height: 35px;
+    line-height: 35px;
+    right: 12px;
+    text-align: center;
+    transition: all 0.3s ease 0s;
+    width: 35px;
+}
+.section-padding {
+    padding: 50px 0;
+}
+.main-content , .header-bottom , footer.footer-area {
+    padding: 0 50px;
+}
+.container {
+    width: 1230px;
+}
+#wrapper {
+    margin: 0;
+    position: relative;
+    width: 100%;
+}
+input[type="color"]:hover, input[type="email"]:hover, input[type="number"]:hover, input[type="password"]:hover, input[type="tel"]:hover, input[type="text"]:hover, select:hover, input.input-text:hover {
+    box-shadow: 0 0 3px #3c3b48 inset;
+}
+.color-hover a {
+    color: #848484;
+}
+.color-hover a:hover , .project-info > a:hover , p.author a:hover , .post-info-author span a:hover , .btn-normal a:hover , .wishlist-table table td.product-name a:hover , .product-sku span , .product-categories > li:hover > span , .product-categories > li:hover > a , ul.children li:hover span ,ul.children li:hover a , .shop-tab-selectors ul.tab-menu li.active a i  , a.heading-title:hover , .top-page ul li a:hover , .header-top a:hover , .currency-down li:hover , .header-area .header-top a:hover , .text-widget a:hover , .heading-title > a:hover , ul.cart-list .remove:hover {
+    color: #00bff3;
+}
+.margin-none {
+    margin: 0 !important;
+}
+.category-menu ul li a.category-label {
+    display: block;
+    padding-bottom: 1px;
+    padding-top: 1px;
+}
+.category-menu ul li a.category-label h2::before {
+    content: "";
+    font: 18px "FontAwesome";
+    left: 0;
+    position: absolute;
+    top: 12px;
+}
+.category-menu ul li a.category-label h2 {
+    color: #f5b016;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 46px;
+    margin: 0;
+    padding: 0 0 0 30px;
+    position: relative;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+.left-category-menu nav.category-menu ul li:hover ul.category-items {
+    opacity: 1;
+    top: 100%;
+    visibility: visible;
+}
+.category-items {
+    background: #ffffff none repeat scroll 0 0;
+    border: 1px solid #e5e5e5;
+    opacity: 0;
+    padding: 9px 0;
+    position: absolute;
+    top: 125%;
+    transition: all 0.3s ease 0s;
+    visibility: hidden;
+    width: 300px;
+    z-index: 999999;
+}
+.left-category-menu nav.category-menu ul li ul.category-items li {
+    display: block;
+    line-height: 40px;
+    padding: 0;
+    position: relative;
+    text-align: left;
+    border: 1px solid transparent;
+    transition: .3s
+}
+.left-category-menu > nav.category-menu > ul > li > ul.category-items > li:hover {
+    border: 1px solid #FFFFFF;
+}
+.left-category-menu {
+    position: relative;
+    z-index: 9999999;
+}
+li.menu-item a span {
+    color: #333;
+    font-size: 16px;
+    padding-left: 15px;
+}
+li.menu-item > a > img {
+    margin-left: 14px;
+}
+.sub-menu-line {
+    overflow: hidden;
+}
+span.menu-drop-icon::before {
+    color: #000;
+    content: "";
+    cursor: pointer;
+    font-family: fontawesome;
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0;
+    position: absolute;
+    right: 10px;
+    top: 2px;
+}
+.left-category-menu nav.category-menu ul li ul.category-items li:hover .sub-menu {
+    opacity: 1;
+    visibility: visible;
+}
+.left-category-menu nav.category-menu ul li ul.category-items li .sub-menu {
+    background: hsl(0, 0%, 100%) none repeat scroll 0 0;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0 0 4px #ccc;
+    left: 100%;
+    margin-left: 15px;
+    opacity: 0;
+    padding: 28px 13px;
+    position: absolute;
+    text-align: left;
+    top: 0;
+    transition: all 0.3s ease 0s;
+    visibility: hidden;
+    width: 780px;
+    z-index: 999999999;
+}
+.sub-menu-left {
+    float: left;
+    padding: 0 15px;
+    width: 25%;
+}
+.sub-menu-left img , .single-effect-2 img , .blog-img img , .bg-effect > img , .left-category-menu nav.category-menu ul li ul.category-items li.jewelry .sub-menu .sub-menu-left , .sub-menu-footer > img , .checkout-table table , .related-product-area .single-product-inner , .main-content-eight .single-product-inner , .product-list-curosel-10 .single-product-inner , .product-list-curosel-8 .single-product-inner , .main-content-six .single-product-inner , .thumbnail-content img  , .main-content .single-product-inner {
+    width: 100%;
+}
+.sub-menu::before {
+    border-color: rgba(0, 0, 0, 0) #ffffff rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+    border-style: solid;
+    border-width: 8px 10px 8px 0;
+    content: "";
+    height: 0;
+    left: -10px;
+    position: absolute;
+    top: 13px;
+    width: 0;
+}
+h2.menu-item-heading {
+    font-size: 16px;
+    margin-bottom: 20px;
+    padding-bottom: 7px;
+    position: relative;
+    border-bottom: 1px solid #ccc;
+}
+h2.menu-item-heading::before {
+    background: #fff none repeat scroll 0 0;
+    bottom: -2px;
+    content: "";
+    height: 2px;
+    left: 0;
+    position: absolute;
+    width: 30px;
+}
+.heading-title.product-title {
+    line-height: 18px;
+    margin-bottom: 4px;
+    margin-top: 2px;
+}
+.main-menu ul li ul.main-sub-menu li.sub-menu-title::before , .modal-product .widget .social-icons li .social-icon:hover , .header-3 .main-menu nav > ul > li > a:hover , .hot-new-area .tab-menu ul li a:hover , .header-2 .shopping-cart-control span.cart-size-value , .header-2 .shopping-cart-info .shopping-cart .shopping-cart-control > a > i , .header-2 .main-menu nav > ul > li > a:hover{
+    color: #fff;
+}
+.mega-menu-left li::before{
+    content: "";
+    font: 4px fontawesome;
+    margin-right: 7px;
+    vertical-align: 2px;
+}
+.main-menu nav > ul {
+    display: flex;
+    flex-flow: row wrap;
+    text-align: left;
+}
+.main-menu nav > ul > li {
+    border-left: 1px solid #f5b016;
+    border-right: 1px solid #f5b016;
+    display: inline-block;
+    list-style: outside none none;
+    margin: 0 -1px 0 0;
+    min-width: 132px;
+    padding: 10px 0 16px;
+    position: relative;
+    text-align: center;
+    vertical-align: top;
+}
+.main-menu nav > ul > li > a {
+    color: #f5b016;
+    display: block;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+.main-menu ul li a span.menu-label:before {
+    color: transparent;
+    content: ".";
+    font-size: 40px;
+    left: 50%;
+    pointer-events: none;
+    position: absolute;
+    text-shadow: 0 0 transparent;
+    top: 100%;
+    transform: translateX(-50%);
+    transition: text-shadow 0.3s ease 0s, color 0.3s ease 0s;
+}
+.main-menu ul li a span.menu-label {
+    display: inline-block;
+    line-height: 5px;
+    outline: medium none;
+    position: relative;
+}
+.main-menu ul li:hover a span.menu-label:before {
+    color: #fff;
+    text-shadow: 10px 0 #fff, -10px 0 #fff;
+}
+.main-menu ul li .menu-drop-icon::before {
+    color: #fff;
+    left: 70px;
+    top: 21px;
+}
+.mega-menu, .main-sub-menu {
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.1);
+    margin: 0;
+    opacity: 0;
+    padding: 20px 30px 18px;
+    position: absolute;
+    text-align: left;
+    top: 100%;
+    transform: scaleY(0);
+    transform-origin: 0 0 0;
+    transition: all 0.4s ease 0s;
+    width: 200px;
+    z-index: 3000;
+}
+.main-sub-menu {
+    margin-left: -100px;
+    left: 50%;
+}
+.expand:hover .main-sub-menu, .main-menu nav ul li:hover .mega-menu {
+    opacity: 1;
+    transform: scaleY(1);
+    z-index: 999999;
+}
+.main-menu ul li ul.main-sub-menu li {
+    display: block;
+    line-height: 24px;
+    padding: 7px 0;
+    position: relative;
+    width: 100%;
+}
+h5.sub-menu-title {
+    color: #00bff3;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+.mainmenu ul li:hover .mega-menu {
+    opacity: 1;
+    transform: scaleY(1);
+}
+.mega-menu {
+    left: 50%;
+    margin-left: -195px;
+    width: 390px;
+}
+.mega-menu-left {
+    float: left;
+    width: 50%;
+}
+.mega-menu-left li {
+    display: block;
+    padding: 7px 0;
+    position: relative;
+}
+.mega-menu-left li::before , .widget-tab .widget-tab-menu ul li a , .heading-title > a , .main-menu ul li ul.main-sub-menu li:before , .post-info-author i , .product-sku > p  , .pd-quantity-available > p , .page-numbers li span , .page-numbers li a:hover , .product-tab-widget .heading-title:hover  , .blog-area-4 .post-info-content > a:hover , .post-info-author .author a , .main-content-three .post-info-author span a:hover{
+    color: #000;
+}
+.mobile-menu-area {
+    display: none;
+}
+.bg-effect:hover::before {
+    opacity: 1 !important;
+}
+.single-effect a span {
+    background: rgba(255, 255, 255, 0.5) none repeat scroll 0 0;
+    opacity: 1;
+    position: absolute;
+    transition: all 2s ease 0s;
+}
+.single-effect a:hover span.s1, .single-effect a:hover span.s3 {
+    width: 1500px;
+}
+.single-effect a:hover span.s2, .single-effect a:hover span.s4 {
+    height: 800px;
+}
+.single-effect a:hover span {
+    opacity: 1;
+}
+.single-effect a span.s1 {
+    height: 5px;
+    left: 0;
+    top: 0;
+    width: 0;
+}
+.single-effect a span.s2 {
+    height: 0;
+    right: 0;
+    top: 0;
+    width: 5px;
+}
+.single-effect a span.s3 {
+    bottom: 0;
+    height: 5px;
+    right: 0;
+    width: 0;
+}
+.single-effect a span.s4 {
+    bottom: 0;
+    height: 0;
+    left: 0;
+    width: 5px;
+}
+.single-effect > a {
+    display: block;
+    overflow: hidden;
+    position: relative;
+}
