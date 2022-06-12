@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Classe\Cart;
 use App\Entity\Address;
 use App\Form\AddressType;
 use App\Repository\AddressRepository;
@@ -28,7 +29,7 @@ class AccountAddressController extends AbstractController
     }
 
     #[Route('/compte/address/add', name: 'account_add_address')]
-    public function add(Request $request): Response
+    public function add(Cart $cart,Request $request): Response
     {
         $address = new Address();
         if (!$address && ($address->getUser() != $this->getUser() || $address->getUser()->isVerified() != true)) {
@@ -44,6 +45,12 @@ class AccountAddressController extends AbstractController
 
             $this->entityManager->persist($address);
             $this->entityManager->flush();
+
+            if ($cart->get()) {
+                $this->redirectToRoute('order');
+            } else {
+                $this->redirectToRoute('account_address');
+            }
 
             return $this->redirectToRoute('account_address');
         }
