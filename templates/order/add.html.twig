@@ -3,20 +3,25 @@
 {% block title %}La Boutique - valider ma commande{% endblock %}
 
 {% block content %}
-<h2>Je passe ma commande</h2>
+    <h2>Mon récapitulatif</h2>
+    <p>Vérifiez vos informations avant de payer votre commande</p>
     <hr>
     <div class="row">
         <div class="col-md-6 commande">
-            {% set formHtml %}
-                {{ form_start(form, { action:path('order_recap') }) }}
-                {{ form_label(form.addresses, 'Choisissez votre adresse de livraison') }}
-                <a href="{{ path('account_add_address') }}"> Ajouter une nouvelle adresse</a>
-                {{ form_end(form) }}
-            {% endset %}
-                {{ formHtml|replace({'[br]' : '<br/>'})|raw }}
+            <strong>Adresse de livraison</strong><br>
+            <div class="form-check">
+                {{ delivery|raw }}
+            </div>
+            <hr>
+            <strong>Transporteur</strong><br>
+            <div class="form-check">
+                {{ carrier.name }}<br>
+                {{ carrier.description }}<br>
+                {{ (carrier.price)|number_format(2) ~ '€' }}
+            </div>
         </div>
         <div class="col-md-6">
-            <b>Récapitulatif de ma commande</b><br>
+            <b>Ma commande</b><br>
             <table class="table table-sm table-hover align-middle">
                 <thead>
                 <tr>
@@ -45,11 +50,17 @@
                 <tfoot>
                 <tr>
                     <td class="text-right"></td>
-                    <td class="fs-6 fw-bold" style="text-align: right;">Sous-total</td>
-                    <td colspan="2" style="text-align: right;">{{ (total / 100)|number_format(2) ~ '€' }}</td>
+                    <td class="fs-6 fw-bold" style="text-align: right;">Sous-total<br>Livraison</td>
+                    <td colspan="2" style="text-align: right;">{{ (total / 100)|number_format(2) ~ '€' }}<br>{{ (carrier.price)|number_format(2) ~ '€' }}</td>
+                </tr>
+                <tr>
+                    <td class="text-right"></td>
+                    <td class="fs-6 fw-bold" style="text-align: right;">Total à payer</td>
+                    <td colspan="2" style="text-align: right;">{{ ((total / 100) + carrier.price)|number_format(2) ~ '€' }}</td>
                 </tr>
                 </tfoot>
             </table>
+            <a href="#"><button class="btn btn-success btn-block">Payer ma commande</button></a>
         </div>
     </div>
 {% endblock %}

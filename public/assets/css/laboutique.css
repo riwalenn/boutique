@@ -375,3 +375,7 @@ h5.sub-menu-title {
     overflow: hidden;
     position: relative;
 }
+.commande .form-check {
+    background-color: #f9fafb;
+    margin-bottom: 10px;
+}
