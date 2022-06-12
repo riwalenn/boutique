@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\CarrierRepository;
 use Doctrine\ORM\Mapping as ORM;
+use JetBrains\PhpStorm\Pure;
 
 #[ORM\Entity(repositoryClass: CarrierRepository::class)]
 class Carrier
@@ -61,5 +62,10 @@ class Carrier
         $this->price = $price;
 
         return $this;
+    }
+
+    #[Pure] public function __toString(): string
+    {
+        return $this->getName() . ' - ' . number_format($this->getPrice(), 2) . '€' . '[br]' . $this->getDescription();
     }
 }

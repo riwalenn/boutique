@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\AddressRepository;
 use Doctrine\ORM\Mapping as ORM;
+use JetBrains\PhpStorm\Pure;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: AddressRepository::class)]
@@ -185,7 +186,7 @@ class Address
         return $this;
     }
 
-    public function __toString(): string
+    #[Pure] public function __toString(): string
     {
         return $this->getName() . '[br]' . $this->getAddress() . '[br]' . $this->getCity() . ' - ' . $this->getCountry();
     }
