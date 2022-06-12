@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Carrier;
 use App\Entity\Category;
+use App\Entity\Order;
 use App\Entity\Product;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -20,7 +21,7 @@ class DashboardController extends AbstractDashboardController
     {
         //        return parent::index();
         $adminUrlGenerator = $this->container->get(AdminUrlGenerator::class);
-        return $this->redirect($adminUrlGenerator->setController(UserCrudController::class)->generateUrl());
+        return $this->redirect($adminUrlGenerator->setController(OrderCrudController::class)->generateUrl());
     }
 
     public function configureDashboard(): Dashboard
@@ -66,6 +67,8 @@ class DashboardController extends AbstractDashboardController
         return [
             MenuItem::section('Utilisateurs'),
             MenuItem::linkToCrud('Utilisateurs', 'fa fa-user', User::class),
+            MenuItem::section('Commandes'),
+            MenuItem::linkToCrud('Commandes', 'fa fa-shopping-cart', Order::class),
             MenuItem::section('Catégories'),
             MenuItem::linkToCrud('Catégories', 'fas fa-list-alt', Category::class),
             MenuItem::section('Produits'),
