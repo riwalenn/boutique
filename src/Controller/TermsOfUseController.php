@@ -11,6 +11,10 @@ class TermsOfUseController extends AbstractController
     #[Route('/terms-of-use', name: 'terms_of_use')]
     public function index(): Response
     {
-        return $this->render('terms_of_use/index.html.twig');
+        $has_address = $this->getUser() && !empty($this->getUser()->getAddresses()->getValues());
+
+        return $this->render('terms_of_use/index.html.twig', [
+            'has_address' => $has_address
+        ]);
     }
 }

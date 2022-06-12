@@ -52,7 +52,8 @@ class AddressType extends AbstractType
                 'label' => 'Numéro de téléphone'
             ])
             ->add('byDefault', CheckboxType::class, [
-                'label' => 'Définir cette adresse comme adresse par défaut'
+                'label' => 'Définir cette adresse comme adresse par défaut',
+                'required' => false,
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Ajouter mon adresse'

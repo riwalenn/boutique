@@ -16,6 +16,8 @@ class ProductController extends AbstractController
     #[Route('/nos-produits/', name: 'products')]
     public function index(ProductRepository $productRepository, Request $request): Response
     {
+        $has_address = $this->getUser() && !empty($this->getUser()->getAddresses()->getValues());
+
         $search = new Search();
         $form = $this->createForm(SearchType::class, $search);
 
@@ -29,25 +31,31 @@ class ProductController extends AbstractController
         return $this->render('product/index.html.twig', [
             'title' => 'Nos produits',
             'products' => $products,
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'has_address' => $has_address
         ]);
     }
 
     #[Route('/produit/{slug}', name: 'product')]
     public function show($slug, ProductRepository $productRepository): Response
     {
+        $has_address = $this->getUser() && !empty($this->getUser()->getAddresses()->getValues());
+
         $product = $productRepository->findOneBy(["slug" => $slug]);
         if (!$product) {
             return $this->redirectToRoute('products');
         }
         return $this->render('product/show.html.twig', [
-            'product' => $product
+            'product' => $product,
+            'has_address' => $has_address
         ]);
     }
 
     #[Route('/categorie/{id_category}', name: 'product_category')]
     public function productsByCategory($id_category, ProductRepository $productRepository, CategoryRepository $categoryRepository, Request $request): Response
     {
+        $has_address = $this->getUser() && !empty($this->getUser()->getAddresses()->getValues());
+
         $search = new Search();
         $form = $this->createForm(SearchType::class, $search);
 
@@ -63,7 +71,8 @@ class ProductController extends AbstractController
         return $this->render('product/index.html.twig', [
             'title' => $categorie->getName(),
             'products' => $products,
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'has_address' => $has_address
         ]);
     }
 }

@@ -133,7 +133,7 @@
                             Compte non vérifié
                         {% else %}
                             <ul>
-                                {% if app.user %}
+                                {% if app.user and has_address %}
                                     <li class="my-auto">
                                         {% for address in app.user.addresses %}
                                             {% if address.byDefault == 1 %}
@@ -146,17 +146,21 @@
                                     </li>
                                 {% endif %}
                                 <li class="expand my-auto">
-                                    {% if app.user %}
-                                        <span style="color: #f5b016;"> Bonjour<br>
+                                    {% if app.user and has_address %}
                                         {% for address in app.user.addresses %}
                                             {% if address.byDefault == 1 %}
+                                                <span>Bonjour</span>
                                                 <a href="{{ path('home') }}" style="color: #f5b016;">
                                                     {{ address.lastname }}
                                                 </a>
                                             {% endif %}
                                         {% endfor %}
-                                    </span>
-                                    {% else %}
+                                    {% elseif app.user and not has_address %}
+                                        <a href="{{ path('home') }}">
+                                            <span style="color: #f5b016;">Profil</span>
+                                        </a>
+                                    {% endif %}
+                                    {% if not app.user %}
                                         <a href="{{ path('home') }}">
                                             <span style="color: #f5b016;">Profil</span>
                                         </a>

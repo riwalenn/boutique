@@ -13,8 +13,11 @@ class CartController extends AbstractController
     #[Route('/mon-panier', name: 'cart')]
     public function index(Cart $cart, ProductRepository $productRepository): Response
     {
-       return $this->render('cart/index.html.twig', [
-            'cart' => $cart->getFull()
+        $has_address = $this->getUser() && !empty($this->getUser()->getAddresses()->getValues());
+
+        return $this->render('cart/index.html.twig', [
+            'cart' => $cart->getFull(),
+            'has_address' => $has_address
         ]);
     }
 

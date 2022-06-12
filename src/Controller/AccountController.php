@@ -11,6 +11,10 @@ class AccountController extends AbstractController
     #[Route('/compte', name: 'account')]
     public function index(): Response
     {
-        return $this->render('account/index.html.twig');
+        $has_address = $this->getUser() && !empty($this->getUser()->getAddresses()->getValues());
+
+        return $this->render('account/index.html.twig', [
+            'has_address' => $has_address
+        ]);
     }
 }

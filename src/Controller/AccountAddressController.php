@@ -6,7 +6,6 @@ use App\Classe\Cart;
 use App\Entity\Address;
 use App\Form\AddressType;
 use App\Repository\AddressRepository;
-use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AccountAddressController extends AbstractController
 {
-    private $entityManager;
+    private EntityManagerInterface $entityManager;
 
     public function __construct(EntityManagerInterface $entityManager)
     {
@@ -25,12 +24,17 @@ class AccountAddressController extends AbstractController
     #[Route('/compte/address', name: 'account_address')]
     public function index(): Response
     {
-        return $this->render('account/address.html.twig');
+        $has_address = $this->getUser() && !empty($this->getUser()->getAddresses()->getValues());
+        return $this->render('account/address.html.twig', [
+            'has_address' => $has_address
+        ]);
     }
 
     #[Route('/compte/address/add', name: 'account_add_address')]
     public function add(Cart $cart,Request $request): Response
     {
+        $has_address = $this->getUser() && !empty($this->getUser()->getAddresses()->getValues());
+
         $address = new Address();
         if (!$address && ($address->getUser() != $this->getUser() || $address->getUser()->isVerified() != true)) {
             $this->redirectToRoute('home');
@@ -56,13 +60,16 @@ class AccountAddressController extends AbstractController
         }
 
         return $this->render('account/address_add.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'has_address' => $has_address
         ]);
     }
 
     #[Route('/compte/address/edit/{id}', name: 'account_edit_address')]
     public function edit(Request $request, AddressRepository $addressRepository, $id): Response
     {
+        $has_address = $this->getUser() && !empty($this->getUser()->getAddresses()->getValues());
+
         $address = $addressRepository->findOneBy(["id" => $id]);
         if (!$address && ($address->getUser() != $this->getUser() || $address->getUser()->isVerified() != true)) {
             $this->redirectToRoute('home');
@@ -82,7 +89,8 @@ class AccountAddressController extends AbstractController
         }
 
         return $this->render('account/address_add.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'has_address' => $has_address
         ]);
     }
 

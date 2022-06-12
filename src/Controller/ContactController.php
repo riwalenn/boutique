@@ -11,6 +11,10 @@ class ContactController extends AbstractController
     #[Route('/contact', name: 'contact')]
     public function index(): Response
     {
-        return $this->render('contact/index.html.twig');
+        $has_address = $this->getUser() && !empty($this->getUser()->getAddresses()->getValues());
+
+        return $this->render('contact/index.html.twig', [
+            'has_address' => $has_address
+        ]);
     }
 }
