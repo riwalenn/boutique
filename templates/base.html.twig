@@ -129,7 +129,7 @@
             <div class="col-md-4 col-sm-12 col-xs-10 d-flex  flex-row-reverse">
                 <div class="main-menu">
                     <nav>
-                        {% if app.user.verified != true %}
+                        {% if app.user and app.user.verified != true %}
                             Compte non vérifié
                         {% else %}
                             <ul>
@@ -147,10 +147,10 @@
                                 {% endif %}
                                 <li class="expand my-auto">
                                     {% if app.user %}
-                                        <span> Bonjour<br>
+                                        <span style="color: #f5b016;"> Bonjour<br>
                                         {% for address in app.user.addresses %}
                                             {% if address.byDefault == 1 %}
-                                                <a href="{{ path('home') }}">
+                                                <a href="{{ path('home') }}" style="color: #f5b016;">
                                                     {{ address.lastname }}
                                                 </a>
                                             {% endif %}
@@ -158,7 +158,7 @@
                                     </span>
                                     {% else %}
                                         <a href="{{ path('home') }}">
-                                            <span>Profil</span>
+                                            <span style="color: #f5b016;">Profil</span>
                                         </a>
                                     {% endif %}
                                     <ul class="main-sub-menu">
@@ -181,14 +181,10 @@
                                         {% endif %}
                                     </ul>
                                 </li>
-                                {% if app.user and app.user.verified == true %}
-                                    <li class="my-auto">
-                                        <a class="text-white text-decoration-none" href="{{ path('cart') }}">
-                                            <i class="fas fa-shopping-cart" style="color: #f5b016;"></i></a>
-                                    </li>
-                                {% else %}
-                                    <li class="my-auto">compte <br>non vérifié</li>
-                                {% endif %}
+                                <li class="my-auto">
+                                    <a class="text-white text-decoration-none" href="{% if app.user and app.user.verified == true %}{{ path('cart') }}{% else %}#{% endif %}">
+                                        <i class="fas fa-shopping-cart" style="color: #f5b016;"></i></a>
+                                </li>
                             </ul>
                         {% endif %}
                     </nav>
