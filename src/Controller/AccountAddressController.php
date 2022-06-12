@@ -31,7 +31,7 @@ class AccountAddressController extends AbstractController
     public function add(Request $request): Response
     {
         $address = new Address();
-        if (!$address && $address->getUser() != $this->getUser()) {
+        if (!$address && ($address->getUser() != $this->getUser() || $address->getUser()->isVerified() != true)) {
             $this->redirectToRoute('home');
         }
         $form = $this->createForm(AddressType::class, $address);
@@ -57,7 +57,7 @@ class AccountAddressController extends AbstractController
     public function edit(Request $request, AddressRepository $addressRepository, $id): Response
     {
         $address = $addressRepository->findOneBy(["id" => $id]);
-        if (!$address && $address->getUser() != $this->getUser()) {
+        if (!$address && ($address->getUser() != $this->getUser() || $address->getUser()->isVerified() != true)) {
             $this->redirectToRoute('home');
         }
         $form = $this->createForm(AddressType::class, $address);
@@ -81,7 +81,9 @@ class AccountAddressController extends AbstractController
 
     #[Route('/compte/address/remove/{id}', name: 'account_address_remove')]
     public function remove(AddressRepository $addressRepository, $id): Response
-    {if ($address && $address->getUser() === $this->getUser()) {
+    {
+        $address = $addressRepository->findOneBy(["id" => $id]);
+        if ($address && $address->getUser() === $this->getUser()) {
         $address = $addressRepository->findOneBy(["id" => $id]);
 
             $this->entityManager->remove($address);

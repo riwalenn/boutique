@@ -129,58 +129,68 @@
             <div class="col-md-4 col-sm-12 col-xs-10 d-flex  flex-row-reverse">
                 <div class="main-menu">
                     <nav>
-                        <ul>
-                            {% if app.user %}
-                                <li class="my-auto">
-                                    {% for address in app.user.addresses %}
-                                        {% if address.byDefault == 1 %}
-                                            <a href="{{ path('account_address') }}" class="text-lowercase">
-                                                Livrer à {{ address.firstname }}<br>
-                                                <i class="fas fa-map-marker-alt"></i> {{ address.city }} {{ address.zipcode }}
-                                            </a>
-                                        {% endif %}
-                                    {% endfor %}
-                                </li>
-                            {% endif %}
-                            <li class="expand my-auto">
+                        {% if app.user.verified != true %}
+                            Compte non vérifié
+                        {% else %}
+                            <ul>
                                 {% if app.user %}
-                                    {% for address in app.user.addresses %}
-                                        {% if address.byDefault == 1 %}
-                                            <a href="{{ path('home') }}">
-                                                <span> Bonjour<br>{{ address.lastname }}</span>
-                                            </a>
-                                        {% endif %}
-                                    {% endfor %}
-                                {% else %}
-                                    <a href="{{ path('home') }}">
-                                        <span>Profil</span>
-                                    </a>
+                                    <li class="my-auto">
+                                        {% for address in app.user.addresses %}
+                                            {% if address.byDefault == 1 %}
+                                                <a href="{{ path('account_address') }}" class="text-lowercase">
+                                                    Livrer à {{ address.firstname }}<br>
+                                                    <i class="fas fa-map-marker-alt"></i> {{ address.city }} {{ address.zipcode }}
+                                                </a>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </li>
                                 {% endif %}
-                                <ul class="main-sub-menu">
-                                    {% if not app.user %}
-                                        <li><a href="{{ path('app_register') }}">Inscription</a></li>
-                                        <li><a href="{{ path('app_login') }}">Connexion</a></li>
-                                    {% endif %}
+                                <li class="expand my-auto">
                                     {% if app.user %}
-                                        <li><a href="{{ path('account') }}">Mon compte</a></li>
-                                        <li><a href="{{ path('account_address') }}">Mes adresses</a></li>
-                                        <li><a href="#">Mes commandes</a></li>
-                                        {% if (is_granted('ROLE_ADMIN')) %}
-                                            <hr>
-                                            <li><a href="{{ path('admin') }}">Panel admin</a></li>
-                                         {% endif %}
-                                        <hr>
-                                        <li><a href="{{ path('app_logout') }}">Déconnexion</a></li>
+                                        <span> Bonjour<br>
+                                        {% for address in app.user.addresses %}
+                                            {% if address.byDefault == 1 %}
+                                                <a href="{{ path('home') }}">
+                                                    {{ address.lastname }}
+                                                </a>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </span>
+                                    {% else %}
+                                        <a href="{{ path('home') }}">
+                                            <span>Profil</span>
+                                        </a>
                                     {% endif %}
-                                </ul>
-                            </li>
-                            {% if app.user %}
-                                <li class="my-auto">
-                                    <a class="text-white text-decoration-none" href="{{ path('cart') }}">
-                                    <i class="fas fa-shopping-cart" style="color: #f5b016;"></i></a>
+                                    <ul class="main-sub-menu">
+                                        {% if not app.user %}
+                                            <li><a href="{{ path('app_register') }}">Inscription</a></li>
+                                            <li><a href="{{ path('app_login') }}">Connexion</a></li>
+                                        {% endif %}
+                                        {% if app.user %}
+                                            {% if app.user.verified == true %}
+                                                <li><a href="{{ path('account') }}">Mon compte</a></li>
+                                                <li><a href="{{ path('account_address') }}">Mes adresses</a></li>
+                                                <li><a href="{{ path('order') }}">Mes commandes</a></li>
+                                                {% if (is_granted('ROLE_ADMIN')) %}
+                                                    <hr>
+                                                    <li><a href="{{ path('admin') }}">Panel admin</a></li>
+                                                {% endif %}
+                                            {% endif %}
+                                            <hr>
+                                            <li><a href="{{ path('app_logout') }}">Déconnexion</a></li>
+                                        {% endif %}
+                                    </ul>
                                 </li>
-                            {% endif %}
-                        </ul>
+                                {% if app.user and app.user.verified == true %}
+                                    <li class="my-auto">
+                                        <a class="text-white text-decoration-none" href="{{ path('cart') }}">
+                                            <i class="fas fa-shopping-cart" style="color: #f5b016;"></i></a>
+                                    </li>
+                                {% else %}
+                                    <li class="my-auto">compte <br>non vérifié</li>
+                                {% endif %}
+                            </ul>
+                        {% endif %}
                     </nav>
                 </div>
             </div>

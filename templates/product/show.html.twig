@@ -13,7 +13,9 @@
             <p class="fw-bold">Prix : {{ (product.price / 100)|number_format(2) ~ '€' }}</p>
             <hr>
             <p>{{ product.description }}</p>
-            <a href="{{ path('add_to_cart', { 'id': product.id }) }}" class="btn btn-primary">Ajouter au panier</a>
+            {% if app.user.verified == true %}
+                <a href="{{ path('add_to_cart', { 'id': product.id }) }}" class="btn btn-primary">Ajouter au panier</a>
+            {% endif %}
 
         </div>
     </div>
